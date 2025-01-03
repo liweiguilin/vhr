@@ -3,6 +3,8 @@ import {Message} from 'element-ui';
 import router from '../router'
 import {mymessage} from '@/utils/mymessage';
 
+axios.defaults.withCredentials=true
+
 axios.interceptors.response.use(success => {
     if (success.status && success.status == 200 && success.data.status == 500) {
         Message.error({message: success.data.msg})
